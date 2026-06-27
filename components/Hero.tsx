@@ -15,10 +15,18 @@ export default function Hero() {
           a pneuservis. Objednanie jednoducho online alebo telefonicky.
         </p>
 
-        <div className="mt-8 grid gap-3 text-sm text-zinc-300 sm:grid-cols-3">
-          <div>✓ Rýchle termíny</div>
-          <div>✓ Férové ceny</div>
-          <div>✓ Diagnostika</div>
+        <div className="mt-8 grid gap-4 sm:grid-cols-3">
+          <div className="rounded-2xl bg-zinc-900 p-4 text-sm text-zinc-300 transition hover:bg-zinc-800">
+            ✓ 15 rokov skúseností
+          </div>
+
+          <div className="rounded-2xl bg-zinc-900 p-4 text-sm text-zinc-300 transition hover:bg-zinc-800">
+            ✓ Certifikovaná diagnostika
+          </div>
+
+          <div className="rounded-2xl bg-zinc-900 p-4 text-sm text-zinc-300 transition hover:bg-zinc-800">
+            ✓ 5000+ opravených áut
+          </div>
         </div>
 
         <div className="mt-10 flex flex-col gap-4 sm:flex-row">
