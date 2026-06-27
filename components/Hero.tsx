@@ -1,3 +1,6 @@
+import { heroFeatures } from "@/data/heroFeatures";
+import Image from "next/image";
+
 export default function Hero() {
   return (
     <section className="mx-auto grid min-h-[80vh] max-w-6xl items-center gap-12 px-6 py-20 lg:grid-cols-2">
@@ -16,17 +19,19 @@ export default function Hero() {
         </p>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
-          <div className="rounded-2xl bg-zinc-900 p-4 text-sm text-zinc-300 transition hover:bg-zinc-800">
-            ✓ 15 rokov skúseností
-          </div>
+          {heroFeatures.map((item) => {
+            const Icon = item.icon;
 
-          <div className="rounded-2xl bg-zinc-900 p-4 text-sm text-zinc-300 transition hover:bg-zinc-800">
-            ✓ Certifikovaná diagnostika
-          </div>
-
-          <div className="rounded-2xl bg-zinc-900 p-4 text-sm text-zinc-300 transition hover:bg-zinc-800">
-            ✓ 5000+ opravených áut
-          </div>
+            return (
+              <div
+                key={item.text}
+                className="flex items-center gap-3 rounded-2xl bg-zinc-900 p-4 text-sm text-zinc-300 transition-all duration-300 hover:-translate-y-1 hover:bg-zinc-800 hover:shadow-lg"
+              >
+                <Icon className="h-6 w-6 text-orange-500" />
+                <span className="font-medium">{item.text}</span>
+              </div>
+            );
+          })}
         </div>
 
         <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -47,8 +52,27 @@ export default function Hero() {
       </div>
 
       <div className="rounded-3xl border border-zinc-800 bg-zinc-900 p-6 shadow-2xl">
-        <div className="flex h-72 items-center justify-center rounded-2xl bg-zinc-800 text-7xl">
-          🚗
+        <div className="relative overflow-hidden rounded-2xl">
+          <Image
+            src="/images/car.jpg"
+            alt="Auto v autoservise"
+            width={700}
+            height={500}
+            className="h-72 w-full object-cover transition duration-500 hover:scale-105"
+            priority
+          />
+
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+
+          <div className="absolute bottom-4 left-4 rounded-2xl bg-black/70 px-5 py-4 backdrop-blur">
+            <p className="text-xs uppercase tracking-wider text-orange-400">
+              Dnes otvorené
+            </p>
+            <p className="mt-1 text-lg font-bold text-white">08:00 – 17:00</p>
+            <p className="mt-2 text-sm text-zinc-300">
+              ⭐ 4.9 / 5 • 5000+ opravených áut
+            </p>
+          </div>
         </div>
 
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
