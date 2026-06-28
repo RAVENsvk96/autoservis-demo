@@ -4,6 +4,7 @@ import WhyUs from "@/components/WhyUs";
 import Contact from "@/components/Contact";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Stats from "@/components/Stats";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Hero />
       <Services />
       <WhyUs />
+      <Stats />
       <Contact />
       <Footer />
     </main>
