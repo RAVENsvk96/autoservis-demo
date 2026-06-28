@@ -1,14 +1,10 @@
+import Logo from "@/components/Logo";
 export default function Footer() {
   return (
     <footer className="border-t border-zinc-800 bg-zinc-950">
       <div className="mx-auto grid max-w-6xl gap-8 px-6 py-12 md:grid-cols-3">
         <div>
-          <a href="#" className="flex items-center gap-2 text-xl font-bold">
-            <span className="text-2xl">🚗</span>
-            <span>
-              Auto<span className="text-orange-500">Servis</span>
-            </span>
-          </a>
+          <Logo />
 
           <p className="mt-4 max-w-sm text-sm text-zinc-400">
             Rýchle, férové a spoľahlivé opravy vozidiel v Nitrianskom kraji.

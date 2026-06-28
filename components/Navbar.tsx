@@ -3,6 +3,7 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { navigation } from "@/data/navigation";
+import Logo from "@/components/Logo";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,16 +12,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/90 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-        <a
-          href="#"
-          onClick={() => setActiveSection("#")}
-          className="flex items-center gap-2 text-xl font-bold tracking-tight"
-        >
-          <span className="text-2xl">🚗</span>
-          <span>
-            Auto<span className="text-orange-500">Servis</span>
-          </span>
-        </a>
+        <Logo />
 
         <div className="hidden items-center gap-8 text-sm md:flex">
           {navigation.map((item) => (

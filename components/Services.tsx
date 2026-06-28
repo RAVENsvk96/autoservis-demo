@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Card from "@/components/Card";
 import { services } from "@/data/services";
 
 export default function Services() {
@@ -25,26 +26,27 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-orange-500 hover:shadow-xl"
               >
-                <Icon className="mb-4 h-10 w-10 text-orange-500" />
+                <Card className="h-full p-6 transition-all duration-300 hover:-translate-y-1 hover:border-orange-500 hover:shadow-xl">
+                  <Icon className="mb-4 h-10 w-10 text-orange-500" />
 
-                <h3 className="text-lg font-semibold">{service.title}</h3>
+                  <h3 className="text-lg font-semibold">{service.title}</h3>
 
-                <p className="mt-3 text-sm text-zinc-400">
-                  {service.description}
-                </p>
+                  <p className="mt-3 text-sm text-zinc-400">
+                    {service.description}
+                  </p>
 
-                <p className="mt-5 font-semibold text-orange-500">
-                  {service.price}
-                </p>
+                  <p className="mt-5 font-semibold text-orange-500">
+                    {service.price}
+                  </p>
 
-                <a
-                  href="#kontakt"
-                  className="mt-6 block rounded-xl bg-orange-500 px-4 py-2 text-center font-semibold text-white transition hover:bg-orange-600"
-                >
-                  Objednať
-                </a>
+                  <a
+                    href="#kontakt"
+                    className="mt-6 block rounded-xl bg-orange-500 px-4 py-2 text-center font-semibold text-white transition hover:bg-orange-600"
+                  >
+                    Objednať
+                  </a>
+                </Card>
               </motion.div>
             );
           })}
