@@ -1,5 +1,6 @@
 "use client";
 
+import { contact } from "@/data/contact";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 import { useState } from "react";
@@ -10,31 +11,31 @@ export default function Contact() {
   );
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-  event.preventDefault();
-  setStatus("loading");
+    event.preventDefault();
+    setStatus("loading");
 
-  const form = event.currentTarget;
-  const formData = new FormData(form);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
 
-  const response = await fetch("/api/contact", {
-    method: "POST",
-    body: JSON.stringify({
-      name: formData.get("name"),
-      email: formData.get("email"),
-      message: formData.get("message"),
-    }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      body: JSON.stringify({
+        name: formData.get("name"),
+        email: formData.get("email"),
+        message: formData.get("message"),
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-  if (response.ok) {
-    setStatus("success");
-    form.reset();
-  } else {
-    setStatus("error");
+    if (response.ok) {
+      setStatus("success");
+      form.reset();
+    } else {
+      setStatus("error");
+    }
   }
-}
 
   return (
     <section id="kontakt" className="mx-auto max-w-6xl px-6 py-20">
@@ -65,10 +66,10 @@ export default function Contact() {
                 <div>
                   <p className="text-sm text-zinc-400">Telefón</p>
                   <a
-                    href="tel:+421900123456"
+                    href={contact.phoneHref}
                     className="font-semibold hover:text-orange-500"
                   >
-                    +421 900 123 456
+                    {contact.phone}
                   </a>
                 </div>
               </div>
@@ -78,10 +79,10 @@ export default function Contact() {
                 <div>
                   <p className="text-sm text-zinc-400">Email</p>
                   <a
-                    href="mailto:info@autoservis.sk"
+                    href={contact.emailHref}
                     className="font-semibold hover:text-orange-500"
                   >
-                    info@autoservis.sk
+                    {contact.email}
                   </a>
                 </div>
               </div>
@@ -90,7 +91,7 @@ export default function Contact() {
                 <MapPin className="h-6 w-6 text-orange-500" />
                 <div>
                   <p className="text-sm text-zinc-400">Adresa</p>
-                  <p className="font-semibold">Nitra, Slovensko</p>
+                  <p className="font-semibold">{contact.address}</p>
                 </div>
               </div>
 
@@ -98,7 +99,7 @@ export default function Contact() {
                 <Clock className="h-6 w-6 text-orange-500" />
                 <div>
                   <p className="text-sm text-zinc-400">Otváracie hodiny</p>
-                  <p className="font-semibold">Po – Pia • 08:00 – 17:00</p>
+                  <p className="font-semibold">{contact.openingHours}</p>
                 </div>
               </div>
             </div>
