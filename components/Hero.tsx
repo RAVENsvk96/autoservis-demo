@@ -1,102 +1,120 @@
 "use client";
 
 import Button from "@/components/Button";
+import { company } from "@/data/company";
 import { heroFeatures } from "@/data/heroFeatures";
 import { motion } from "framer-motion";
+import { Phone, Star } from "lucide-react";
 import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="mx-auto grid min-h-[80vh] max-w-6xl items-center gap-12 px-6 py-20 lg:grid-cols-2">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-orange-500">
-          Autoservis v Nitre
-        </p>
+    <section className="relative overflow-hidden">
+      <div className="absolute left-1/2 top-0 -z-10 h-96 w-96 -translate-x-1/2 rounded-full bg-orange-500/20 blur-3xl" />
 
-        <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
-          Opravíme vaše auto rýchlo, férovo a spoľahlivo.
-        </h1>
+      <div className="mx-auto grid min-h-[85vh] max-w-6xl items-center gap-12 px-6 py-24 lg:grid-cols-2">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-2 text-sm font-semibold text-orange-400">
+            <Star className="h-4 w-4 fill-orange-400" />
+            4.9 / 5 hodnotenie zákazníkov
+          </div>
 
-        <p className="mt-6 max-w-xl text-lg text-zinc-300">
-          Moderný autoservis pre bežnú údržbu, diagnostiku, brzdy, podvozok a
-          pneuservis. Objednanie jednoducho online alebo telefonicky.
-        </p>
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-orange-500">
+            {company.slogan}
+          </p>
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-3">
-          {heroFeatures.map((item) => {
-            const Icon = item.icon;
+          <h1 className="max-w-2xl text-4xl font-bold tracking-tight sm:text-6xl">
+            Opravíme vaše auto rýchlo, férovo a spoľahlivo.
+          </h1>
 
-            return (
-              <div
-                key={item.text}
-                className="flex items-center gap-3 rounded-2xl bg-zinc-900 p-4 text-sm text-zinc-300 transition-all duration-300 hover:-translate-y-1 hover:bg-zinc-800 hover:shadow-lg"
-              >
-                <Icon className="h-6 w-6 text-orange-500" />
-                <span className="font-medium">{item.text}</span>
+          <p className="mt-6 max-w-xl text-lg leading-8 text-zinc-300">
+            Moderný autoservis pre bežnú údržbu, diagnostiku, brzdy, podvozok a
+            pneuservis. Objednanie jednoducho online alebo telefonicky.
+          </p>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            {heroFeatures.map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <div
+                  key={item.text}
+                  className="flex items-center gap-3 rounded-2xl border border-zinc-800 bg-zinc-900/80 p-4 text-sm text-zinc-300 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-orange-500/60 hover:bg-zinc-900 hover:shadow-lg"
+                >
+                  <Icon className="h-6 w-6 text-orange-500" />
+                  <span className="font-medium">{item.text}</span>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <Button href="#kontakt">Objednať termín</Button>
+
+            <a
+              href={company.phoneHref}
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-700 px-6 py-3 text-center font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-zinc-900"
+            >
+              <Phone className="h-5 w-5 text-orange-500" />
+              Zavolať
+            </a>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="relative"
+        >
+          <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-orange-500/20 blur-2xl" />
+
+          <div className="rounded-3xl border border-zinc-800 bg-zinc-900/90 p-5 shadow-2xl backdrop-blur">
+            <div className="relative overflow-hidden rounded-2xl">
+              <Image
+                src="/images/car.jpg"
+                alt="Auto v autoservise"
+                width={700}
+                height={500}
+                className="h-80 w-full rounded-2xl object-cover transition duration-700 hover:scale-105"
+                priority
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
+
+              <div className="absolute bottom-4 left-4 rounded-2xl bg-black/70 px-5 py-4 backdrop-blur">
+                <p className="text-xs uppercase tracking-wider text-orange-400">
+                  Dnes otvorené
+                </p>
+
+                <p className="mt-1 text-lg font-bold text-white">
+                  {company.openingHours}
+                </p>
+
+                <p className="mt-2 text-sm text-zinc-300">
+                  ⭐ 4.9 / 5 • 5000+ opravených áut
+                </p>
               </div>
-            );
-          })}
-        </div>
+            </div>
 
-        <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-          <Button href="#kontakt">Objednať termín</Button>
+            <div className="mt-5 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-2xl bg-zinc-950 p-4">
+                <p className="text-sm text-zinc-400">Najbližší termín</p>
+                <p className="mt-1 font-semibold">do 24 hodín</p>
+              </div>
 
-          <a
-            href="tel:0900123456"
-            className="rounded-xl border border-zinc-700 px-6 py-3 text-center font-semibold text-white transition-all duration-300 hover:bg-zinc-900"
-          >
-            Zavolať
-          </a>
-        </div>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.7, delay: 0.2 }}
-        className="rounded-3xl border border-zinc-800 bg-zinc-900 p-6 shadow-2xl"
-      >
-        <div className="relative overflow-hidden rounded-2xl">
-          <Image
-            src="/images/car.jpg"
-            alt="Auto v autoservise"
-            width={700}
-            height={500}
-            className="h-72 w-full rounded-2xl object-cover"
-            priority
-          />
-
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-
-          <div className="absolute bottom-4 left-4 rounded-2xl bg-black/70 px-5 py-4 backdrop-blur">
-            <p className="text-xs uppercase tracking-wider text-orange-400">
-              Dnes otvorené
-            </p>
-
-            <p className="mt-1 text-lg font-bold text-white">08:00 – 17:00</p>
-
-            <p className="mt-2 text-sm text-zinc-300">
-              ⭐ 4.9 / 5 • 5000+ opravených áut
-            </p>
+              <div className="rounded-2xl bg-zinc-950 p-4">
+                <p className="text-sm text-zinc-400">Diagnostika</p>
+                <p className="mt-1 font-semibold">od 30 €</p>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          <div className="rounded-2xl bg-zinc-950 p-4">
-            <p className="text-sm text-zinc-400">Otvorené dnes</p>
-            <p className="mt-1 font-semibold">08:00 – 17:00</p>
-          </div>
-
-          <div className="rounded-2xl bg-zinc-950 p-4">
-            <p className="text-sm text-zinc-400">Diagnostika</p>
-            <p className="mt-1 font-semibold">od 30 €</p>
-          </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 }
