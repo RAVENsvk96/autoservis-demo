@@ -1,9 +1,10 @@
 "use client";
 
+import Button from "@/components/Button";
+import Logo from "@/components/Logo";
+import { navigation } from "@/data/navigation";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { navigation } from "@/data/navigation";
-import Logo from "@/components/Logo";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,16 +33,16 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-3">
-          <a
+          <Button
             href="#kontakt"
-            onClick={() => setActiveSection("#kontakt")}
-            className="rounded-xl bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-orange-600 hover:shadow-lg hover:shadow-orange-500/30"
+            className="px-5 py-2.5 text-sm"
           >
             Objednať
-          </a>
+          </Button>
 
           <button
             type="button"
+            aria-label={isOpen ? "Zatvoriť menu" : "Otvoriť menu"}
             onClick={() => setIsOpen(!isOpen)}
             className="rounded-xl border border-zinc-800 p-2 text-zinc-300 md:hidden"
           >

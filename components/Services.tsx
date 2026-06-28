@@ -1,5 +1,6 @@
 "use client";
 
+import Button from "@/components/Button";
 import { motion } from "framer-motion";
 import Card from "@/components/Card";
 import { services } from "@/data/services";
@@ -40,12 +41,12 @@ export default function Services() {
                     {service.price}
                   </p>
 
-                  <a
-                    href="#kontakt"
-                    className="mt-6 block rounded-xl bg-orange-500 px-4 py-2 text-center font-semibold text-white transition hover:bg-orange-600"
-                  >
-                    Objednať
-                  </a>
+                  <Button
+  href="#kontakt"
+  className="mt-6 w-full px-4 py-2"
+>
+  Objednať
+</Button>
                 </Card>
               </motion.div>
             );

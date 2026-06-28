@@ -1,8 +1,9 @@
 "use client";
 
+import Button from "@/components/Button";
+import { heroFeatures } from "@/data/heroFeatures";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { heroFeatures } from "@/data/heroFeatures";
 
 export default function Hero() {
   return (
@@ -21,9 +22,8 @@ export default function Hero() {
         </h1>
 
         <p className="mt-6 max-w-xl text-lg text-zinc-300">
-          Moderný autoservis pre bežnú údržbu, diagnostiku, brzdy,
-          podvozok a pneuservis. Objednanie jednoducho online alebo
-          telefonicky.
+          Moderný autoservis pre bežnú údržbu, diagnostiku, brzdy, podvozok a
+          pneuservis. Objednanie jednoducho online alebo telefonicky.
         </p>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
@@ -36,7 +36,6 @@ export default function Hero() {
                 className="flex items-center gap-3 rounded-2xl bg-zinc-900 p-4 text-sm text-zinc-300 transition-all duration-300 hover:-translate-y-1 hover:bg-zinc-800 hover:shadow-lg"
               >
                 <Icon className="h-6 w-6 text-orange-500" />
-
                 <span className="font-medium">{item.text}</span>
               </div>
             );
@@ -44,12 +43,7 @@ export default function Hero() {
         </div>
 
         <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-          <a
-            href="#kontakt"
-            className="rounded-xl bg-orange-500 px-6 py-3 text-center font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-orange-600"
-          >
-            Objednať termín
-          </a>
+          <Button href="#kontakt">Objednať termín</Button>
 
           <a
             href="tel:0900123456"
@@ -83,9 +77,7 @@ export default function Hero() {
               Dnes otvorené
             </p>
 
-            <p className="mt-1 text-lg font-bold text-white">
-              08:00 – 17:00
-            </p>
+            <p className="mt-1 text-lg font-bold text-white">08:00 – 17:00</p>
 
             <p className="mt-2 text-sm text-zinc-300">
               ⭐ 4.9 / 5 • 5000+ opravených áut

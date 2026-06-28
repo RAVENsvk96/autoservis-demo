@@ -1,6 +1,6 @@
 "use client";
 
-import { contact } from "@/data/contact";
+import { company } from "@/data/company";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 import { useState } from "react";
@@ -11,34 +11,33 @@ export default function Contact() {
     "idle"
   );
 
-  const handleSubmit: NonNullable<ComponentProps<"form">["onSubmit"]> = async (
-  event
-) => {
-  event.preventDefault();
-  setStatus("loading");
+  const handleSubmit: NonNullable<ComponentProps<"form">["onSubmit"]> =
+  async (event) => {
+    event.preventDefault();
+    setStatus("loading");
 
-  const form = event.currentTarget;
-  const formData = new FormData(form);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
 
-  const response = await fetch("/api/contact", {
-    method: "POST",
-    body: JSON.stringify({
-      name: formData.get("name"),
-      email: formData.get("email"),
-      message: formData.get("message"),
-    }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      body: JSON.stringify({
+        name: formData.get("name"),
+        email: formData.get("email"),
+        message: formData.get("message"),
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-  if (response.ok) {
-    setStatus("success");
-    form.reset();
-  } else {
-    setStatus("error");
-  }
-};
+    if (response.ok) {
+      setStatus("success");
+      form.reset();
+    } else {
+      setStatus("error");
+    }
+  };
 
   return (
     <section id="kontakt" className="mx-auto max-w-6xl px-6 py-20">
@@ -69,10 +68,10 @@ export default function Contact() {
                 <div>
                   <p className="text-sm text-zinc-400">Telefón</p>
                   <a
-                    href={contact.phoneHref}
+                    href={company.phoneHref}
                     className="font-semibold hover:text-orange-500"
                   >
-                    {contact.phone}
+                    {company.phone}
                   </a>
                 </div>
               </div>
@@ -82,10 +81,10 @@ export default function Contact() {
                 <div>
                   <p className="text-sm text-zinc-400">Email</p>
                   <a
-                    href={contact.emailHref}
+                    href={company.emailHref}
                     className="font-semibold hover:text-orange-500"
                   >
-                    {contact.email}
+                    {company.email}
                   </a>
                 </div>
               </div>
@@ -94,7 +93,7 @@ export default function Contact() {
                 <MapPin className="h-6 w-6 text-orange-500" />
                 <div>
                   <p className="text-sm text-zinc-400">Adresa</p>
-                  <p className="font-semibold">{contact.address}</p>
+                  <p className="font-semibold">{company.address}</p>
                 </div>
               </div>
 
@@ -102,7 +101,7 @@ export default function Contact() {
                 <Clock className="h-6 w-6 text-orange-500" />
                 <div>
                   <p className="text-sm text-zinc-400">Otváracie hodiny</p>
-                  <p className="font-semibold">{contact.openingHours}</p>
+                  <p className="font-semibold">{company.openingHours}</p>
                 </div>
               </div>
             </div>

@@ -1,3 +1,4 @@
+import { company } from "@/data/company";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -13,55 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://autoservis-demo-beryl.vercel.app"),
-
-  title: {
-    default: "AutoServis | Autoservis v Nitre",
-    template: "%s | AutoServis",
-  },
-
-  description:
-    "Moderný autoservis v Nitre. Výmena oleja, diagnostika, brzdy, pneuservis a profesionálny servis vozidiel.",
-
-  keywords: [
-    "autoservis",
-    "autoservis Nitra",
-    "diagnostika",
-    "výmena oleja",
-    "brzdy",
-    "pneuservis",
-    "servis áut",
-  ],
-
-  authors: [
-    {
-      name: "AutoServis",
-    },
-  ],
-
-  creator: "AutoServis",
-
-  openGraph: {
-    title: "AutoServis | Autoservis v Nitre",
-    description:
-      "Profesionálny autoservis v Nitre. Diagnostika, pneuservis, brzdy, výmena oleja a ďalšie služby.",
-    url: "https://autoservis-demo-beryl.vercel.app",
-    siteName: "AutoServis",
-    locale: "sk_SK",
-    type: "website",
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title: "AutoServis | Autoservis v Nitre",
-    description:
-      "Profesionálny autoservis v Nitre. Diagnostika, pneuservis a servis vozidiel.",
-  },
-
-  robots: {
-    index: true,
-    follow: true,
-  },
+  metadataBase: new URL(company.website),
+  title: `${company.name} | ${company.city}`,
+  description: company.description,
 };
 
 export default function RootLayout({
