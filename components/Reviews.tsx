@@ -2,24 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
-
-const reviews = [
-  {
-    name: "Martin K.",
-    text: "Rýchle objednanie, férový prístup a auto bolo hotové ešte v ten istý deň.",
-    rating: 5,
-  },
-  {
-    name: "Peter S.",
-    text: "Konečne servis, kde mi všetko vysvetlili normálne a nesnažili sa ma natiahnuť.",
-    rating: 5,
-  },
-  {
-    name: "Lucia M.",
-    text: "Výborná komunikácia, jasná cena vopred a profesionálny prístup.",
-    rating: 5,
-  },
-];
+import { reviews } from "@/data/reviews";
 
 export default function Reviews() {
   return (
