@@ -4,38 +4,41 @@ import { contact } from "@/data/contact";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 import { useState } from "react";
+import type { ComponentProps } from "react";
 
 export default function Contact() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
     "idle"
   );
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setStatus("loading");
+  const handleSubmit: NonNullable<ComponentProps<"form">["onSubmit"]> = async (
+  event
+) => {
+  event.preventDefault();
+  setStatus("loading");
 
-    const form = event.currentTarget;
-    const formData = new FormData(form);
+  const form = event.currentTarget;
+  const formData = new FormData(form);
 
-    const response = await fetch("/api/contact", {
-      method: "POST",
-      body: JSON.stringify({
-        name: formData.get("name"),
-        email: formData.get("email"),
-        message: formData.get("message"),
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+  const response = await fetch("/api/contact", {
+    method: "POST",
+    body: JSON.stringify({
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+    }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 
-    if (response.ok) {
-      setStatus("success");
-      form.reset();
-    } else {
-      setStatus("error");
-    }
+  if (response.ok) {
+    setStatus("success");
+    form.reset();
+  } else {
+    setStatus("error");
   }
+};
 
   return (
     <section id="kontakt" className="mx-auto max-w-6xl px-6 py-20">
