@@ -2,29 +2,7 @@
 
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
-
-const stats = [
-  {
-    number: 15,
-    suffix: "+",
-    label: "rokov skúseností",
-  },
-  {
-    number: 5000,
-    suffix: "+",
-    label: "opravených áut",
-  },
-  {
-    number: 98,
-    suffix: "%",
-    label: "spokojných zákazníkov",
-  },
-  {
-    number: 24,
-    suffix: "h",
-    label: "rýchle objednanie",
-  },
-];
+import { stats } from "@/data/stats";
 
 export default function Stats() {
   return (
@@ -58,9 +36,7 @@ export default function Stats() {
               {stat.suffix}
             </h3>
 
-            <p className="mt-4 text-zinc-400">
-              {stat.label}
-            </p>
+            <p className="mt-4 text-zinc-400">{stat.label}</p>
           </motion.div>
         ))}
       </motion.div>
