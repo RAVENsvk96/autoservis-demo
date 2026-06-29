@@ -3,10 +3,15 @@
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { reviews } from "@/data/reviews";
+import SectionHeading from "@/components/SectionHeading";
 
 export default function Reviews() {
   return (
     <section className="mx-auto max-w-6xl px-6 py-20">
+      <SectionHeading
+        badge="Recenzie"
+        title="Čo hovoria naši zákazníci"
+      />
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}

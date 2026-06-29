@@ -20,5 +20,13 @@ export const company = {
 
   openingHours: "Po – Pia • 08:00 – 17:00",
 
+  openingHoursSchema: ["Mo-Fr 08:00-17:00"],
+
   mapUrl: "https://www.google.com/maps?q=Nitra&output=embed",
+
+  areaServed: "Nitra a okolie",
+
+  priceRange: "€€",
+
+  socialLinks: [],
 };

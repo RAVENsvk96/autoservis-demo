@@ -7,19 +7,26 @@ import Footer from "@/components/Footer";
 import Stats from "@/components/Stats";
 import Reviews from "@/components/Reviews";
 import  CTA  from "@/components/CTA";
+import FAQ from "@/components/FAQ";
+import StructuredData from "@/components/StructuredData";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-zinc-950 text-white">
-      <Navbar />
-      <Hero />
-      <Services />
-      <WhyUs />
-      <Reviews />
-      <CTA />
-      <Stats />
-      <Contact />
-      <Footer />
-    </main>
+    <>
+      <StructuredData />
+
+      <main className="min-h-screen bg-zinc-950 text-white">
+        <Navbar />
+        <Hero />
+        <Services />
+        <WhyUs />
+        <Reviews />
+        <FAQ />
+        <CTA />
+        <Stats />
+        <Contact />
+        <Footer />
+      </main>
+    </>
   );
 }
