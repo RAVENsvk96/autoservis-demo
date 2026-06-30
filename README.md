@@ -1,40 +1,45 @@
-# AutoServis Demo
+# Local Business Starter Kit
 
-Moderná webová stránka pre autoservis vytvorená v Next.js.
+Next.js starter kit pre moderné weby lokálnych firiem.
 
-## Live demo
+Aktuálny demo variant: autoservis v Nitre.
 
-https://autoservis-demo-beryl.vercel.app
+## Cieľ projektu
 
-## Funkcie
+Cieľom nie je vytvoriť iba jednu landing page, ale znovupoužiteľný základ pre weby lokálnych služieb, napríklad:
 
-- responzívny dizajn
-- moderný Hero section
-- sekcia služieb
-- animované štatistiky
-- recenzie zákazníkov
-- kontaktný formulár
-- odosielanie e-mailov cez Resend
-- SEO metadata
-- Open Graph obrázok
-- sitemap.xml
-- robots.txt
-- deployment cez Vercel
+- autoservis
+- pneuservis
+- elektrikár
+- inštalatér
+- klimatizácie
+- stolár
+- záhradník
+
+Pri novom klientovi by sa mali meniť hlavne dáta, branding a obrázky — nie komponenty.
 
 ## Technológie
 
 - Next.js
-- React
 - TypeScript
 - Tailwind CSS
 - Framer Motion
-- Lucide React
-- React CountUp
 - Resend
 - Vercel
 
-## Lokálne spustenie
+## Základná filozofia
 
-```bash
-npm install
-npm run dev
+1. Dáta patria do `data/`.
+2. Komponenty majú riešiť UI, nie obsah.
+3. Dizajn nemeníme počas refaktoru.
+4. Jedna logická zmena = jeden commit.
+5. Starter kit musí zostať jednoduchý.
+6. Každá zmena má byť použiteľná aj pre ďalších klientov.
+
+## Dôležité priečinky
+
+```txt
+app/
+components/
+data/
+public/images/
