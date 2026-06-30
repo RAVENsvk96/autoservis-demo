@@ -1,4 +1,4 @@
-import StructuredData from "@/components/StructuredData";
+import StructuredData from "@/components/seo/StructuredData";
 
 import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
