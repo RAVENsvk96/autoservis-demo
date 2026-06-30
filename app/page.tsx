@@ -1,14 +1,15 @@
-import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import WhyUs from "@/components/WhyUs";
-import Contact from "@/components/Contact";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import Stats from "@/components/Stats";
-import Reviews from "@/components/Reviews";
-import  CTA  from "@/components/CTA";
-import FAQ from "@/components/FAQ";
 import StructuredData from "@/components/StructuredData";
+
+import Navbar from "@/components/sections/Navbar";
+import Hero from "@/components/sections/Hero";
+import Services from "@/components/sections/Services";
+import WhyUs from "@/components/sections/WhyUs";
+import Reviews from "@/components/sections/Reviews";
+import FAQ from "@/components/sections/FAQ";
+import CTA from "@/components/sections/CTA";
+import Stats from "@/components/sections/Stats";
+import Contact from "@/components/sections/Contact";
+import Footer from "@/components/sections/Footer";
 
 export default function Home() {
   return (
