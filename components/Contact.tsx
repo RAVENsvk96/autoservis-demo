@@ -1,8 +1,9 @@
 "use client";
 
+import SectionHeading from "@/components/layout/SectionHeading";
 import { company } from "@/data/company";
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { Clock, Mail, MapPin, Phone, Send } from "lucide-react";
 import { useState } from "react";
 import type { ComponentProps } from "react";
 
@@ -11,8 +12,9 @@ export default function Contact() {
     "idle"
   );
 
-  const handleSubmit: NonNullable<ComponentProps<"form">["onSubmit"]> =
-  async (event) => {
+  const handleSubmit: NonNullable<ComponentProps<"form">["onSubmit"]> = async (
+    event
+  ) => {
     event.preventDefault();
     setStatus("loading");
 
@@ -47,69 +49,70 @@ export default function Contact() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-orange-500">
-          Kontakt
-        </p>
-
-        <h2 className="mt-4 text-4xl font-bold">
-          Dohodnite si termín ešte dnes
-        </h2>
-
-        <p className="mt-5 max-w-2xl text-zinc-400">
-          Zavolajte nám alebo nám napíšte. Radi vám poradíme, pripravíme cenovú
-          ponuku a nájdeme najbližší voľný termín.
-        </p>
+        <SectionHeading
+          badge="Kontakt"
+          title="Dohodnite si termín ešte dnes"
+          description="Zavolajte nám alebo nám napíšte. Radi vám poradíme, pripravíme cenovú ponuku a nájdeme najbližší voľný termín."
+        />
 
         <div className="mt-12 grid gap-8 lg:grid-cols-2">
-          <div className="rounded-3xl border border-zinc-800 bg-zinc-900 p-8">
+          <div className="rounded-3xl border border-zinc-800 bg-zinc-900 p-8 transition-all duration-300 hover:border-orange-500 hover:shadow-xl hover:shadow-orange-500/10">
             <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <Phone className="h-6 w-6 text-orange-500" />
-                <div>
-                  <p className="text-sm text-zinc-400">Telefón</p>
-                  <a
-                    href={`tel:${company.phoneClean}`}
-                    className="font-semibold hover:text-orange-500"
-                  >
-                    {company.phone}
-                  </a>
-                </div>
-              </div>
+              {[
+                {
+                  icon: Phone,
+                  label: "Telefón",
+                  value: company.phone,
+                  href: `tel:${company.phoneClean}`,
+                },
+                {
+                  icon: Mail,
+                  label: "Email",
+                  value: company.email,
+                  href: `mailto:${company.email}`,
+                },
+                {
+                  icon: MapPin,
+                  label: "Adresa",
+                  value: company.address,
+                },
+                {
+                  icon: Clock,
+                  label: "Otváracie hodiny",
+                  value: company.openingHours,
+                },
+              ].map((item) => {
+                const Icon = item.icon;
 
-              <div className="flex items-center gap-4">
-                <Mail className="h-6 w-6 text-orange-500" />
-                <div>
-                  <p className="text-sm text-zinc-400">Email</p>
-                  <a
-                    href={`mailto:${company.email}`}
-                    className="font-semibold hover:text-orange-500"
-                  >
-                    {company.email}
-                  </a>
-                </div>
-              </div>
+                return (
+                  <div key={item.label} className="flex items-center gap-4">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-orange-500/10">
+                      <Icon className="h-5 w-5 text-orange-500" />
+                    </div>
 
-              <div className="flex items-center gap-4">
-                <MapPin className="h-6 w-6 text-orange-500" />
-                <div>
-                  <p className="text-sm text-zinc-400">Adresa</p>
-                  <p className="font-semibold">{company.address}</p>
-                </div>
-              </div>
+                    <div>
+                      <p className="text-sm text-zinc-400">{item.label}</p>
 
-              <div className="flex items-center gap-4">
-                <Clock className="h-6 w-6 text-orange-500" />
-                <div>
-                  <p className="text-sm text-zinc-400">Otváracie hodiny</p>
-                  <p className="font-semibold">{company.openingHours}</p>
-                </div>
-              </div>
+                      {item.href ? (
+                        <a
+                          href={item.href}
+                          className="font-semibold transition hover:text-orange-500"
+                        >
+                          {item.value}
+                        </a>
+                      ) : (
+                        <p className="font-semibold">{item.value}</p>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
           <form
             onSubmit={handleSubmit}
-            className="rounded-3xl border border-zinc-800 bg-zinc-900 p-8"
+            className="rounded-3xl border border-zinc-800 bg-zinc-900 p-8 transition-all duration-300 hover:border-orange-500 hover:shadow-xl hover:shadow-orange-500/10"
           >
             <div className="grid gap-4">
               <input

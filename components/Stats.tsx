@@ -24,9 +24,9 @@ export default function Stats() {
               duration: 0.5,
               delay: index * 0.15,
             }}
-            className="rounded-3xl border border-zinc-800 bg-zinc-900 p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:border-orange-500"
+            className="rounded-3xl border border-zinc-800 bg-zinc-900 p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:border-orange-500 hover:shadow-xl hover:shadow-orange-500/10"
           >
-            <h3 className="text-5xl font-bold text-orange-500">
+            <h3 className="text-5xl font-bold tracking-tight text-orange-500">
               <CountUp
                 end={stat.number}
                 duration={2}
@@ -36,7 +36,9 @@ export default function Stats() {
               {stat.suffix}
             </h3>
 
-            <p className="mt-4 text-zinc-400">{stat.label}</p>
+            <p className="mt-4 text-sm font-medium uppercase tracking-wide text-zinc-400">
+              {stat.label}
+            </p>
           </motion.div>
         ))}
       </motion.div>
