@@ -5,10 +5,20 @@ type CardProps = {
   className?: string;
 };
 
-export default function Card({ children, className = "" }: CardProps) {
+export default function Card({
+  children,
+  className = "",
+}: CardProps) {
   return (
     <div
-      className={`rounded-3xl border border-zinc-800 bg-zinc-900 ${className}`}
+      className={`
+        overflow-hidden
+        rounded-3xl
+        border border-zinc-800
+        bg-zinc-900
+        transition-all duration-300
+        ${className}
+      `}
     >
       {children}
     </div>

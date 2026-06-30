@@ -15,7 +15,27 @@ export default function Button({
   return (
     <Link
       href={href}
-      className={`inline-flex items-center justify-center rounded-xl bg-orange-500 px-6 py-3 font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-orange-600 hover:shadow-lg hover:shadow-orange-500/30 ${className}`}
+      className={`
+        inline-flex items-center justify-center
+        whitespace-nowrap
+        rounded-xl
+        bg-orange-500
+        px-6 py-3
+        font-semibold
+        text-white
+        transition-all duration-300
+        hover:-translate-y-0.5
+        hover:bg-orange-600
+        hover:shadow-lg
+        hover:shadow-orange-500/30
+        active:scale-[0.98]
+        focus-visible:outline-none
+        focus-visible:ring-2
+        focus-visible:ring-orange-500
+        focus-visible:ring-offset-2
+        focus-visible:ring-offset-zinc-950
+        ${className}
+      `}
     >
       {children}
     </Link>
