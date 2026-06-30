@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/Button";
+import Button from "@/components/ui/Button";
 import { company } from "@/data/company";
 import { heroFeatures } from "@/data/heroFeatures";
 import { motion } from "framer-motion";

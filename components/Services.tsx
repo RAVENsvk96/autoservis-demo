@@ -1,7 +1,7 @@
 "use client";
 
-import Button from "@/components/Button";
-import Card from "@/components/Card";
+import Button from "@/components/ui/Button";
+import Card from "@/components/ui/Card";
 import SectionHeading from "@/components/layout/SectionHeading";
 import { services } from "@/data/services";
 import { motion } from "framer-motion";
