@@ -16,7 +16,7 @@ export default function Logo({
   priority = true,
   variant = "navbar",
 }: LogoProps) {
-  const src = variant === "full" ? company.logoFull : company.logo;
+  const logoSrc = variant === "full" ? company.logoFull : company.logo;
 
   return (
     <Link
@@ -25,7 +25,7 @@ export default function Logo({
       className="inline-flex items-center"
     >
       <Image
-        src={src}
+        src={logoSrc}
         alt={company.name}
         width={260}
         height={90}
