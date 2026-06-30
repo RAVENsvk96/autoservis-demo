@@ -1,15 +1,37 @@
-import { Car } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
-export default function Logo() {
+import { company } from "@/data/company";
+
+type LogoProps = {
+  className?: string;
+  href?: string;
+  priority?: boolean;
+  variant?: "navbar" | "full";
+};
+
+export default function Logo({
+  className,
+  href = "/",
+  priority = true,
+  variant = "navbar",
+}: LogoProps) {
+  const src = variant === "full" ? company.logoFull : company.logo;
+
   return (
-    <a href="#" className="flex items-center gap-3 font-bold tracking-tight">
-      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500 text-white">
-        <Car className="h-5 w-5" />
-      </div>
-
-      <span className="text-xl">
-        Auto<span className="text-orange-500">Servis</span>
-      </span>
-    </a>
+    <Link
+      href={href}
+      aria-label={company.name}
+      className="inline-flex items-center"
+    >
+      <Image
+        src={src}
+        alt={company.name}
+        width={260}
+        height={90}
+        priority={priority}
+        className={className ?? "h-12 w-auto"}
+      />
+    </Link>
   );
 }

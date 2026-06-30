@@ -8,6 +8,8 @@ export default function StructuredData() {
     name: company.name,
     description: company.description,
     url: company.website,
+    logo: `${company.website}${company.logo}`,
+    image: `${company.website}${company.ogImage}`,
     telephone: company.phone,
     email: company.email,
     address: {

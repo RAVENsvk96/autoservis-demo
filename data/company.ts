@@ -7,14 +7,18 @@ export const company = {
 
   website: "https://autoservis-demo-beryl.vercel.app",
 
+  logo: "/images/logo-autoservis-navbar.png",
+  logoFull: "/images/logo-autoservis-full.png",
+  ogImage: "/images/og-image-autoservis.png",
+
   description:
     "Moderný autoservis v Nitre. Výmena oleja, brzdy, pneuservis, diagnostika a ďalšie služby.",
 
   phone: "+421 900 123 456",
-  phoneHref: "tel:+421900123456",
+  phoneClean: "+421900123456",
 
   email: "info@autoservis.sk",
-  emailHref: "mailto:info@autoservis.sk",
+  emailClean: "info@autoservis.sk",
 
   address: "Nitra, Slovensko",
 

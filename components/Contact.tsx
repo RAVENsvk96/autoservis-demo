@@ -68,7 +68,7 @@ export default function Contact() {
                 <div>
                   <p className="text-sm text-zinc-400">Telefón</p>
                   <a
-                    href={company.phoneHref}
+                    href={`tel:${company.phoneClean}`}
                     className="font-semibold hover:text-orange-500"
                   >
                     {company.phone}
@@ -81,7 +81,7 @@ export default function Contact() {
                 <div>
                   <p className="text-sm text-zinc-400">Email</p>
                   <a
-                    href={company.emailHref}
+                    href={`mailto:${company.email}`}
                     className="font-semibold hover:text-orange-500"
                   >
                     {company.email}
