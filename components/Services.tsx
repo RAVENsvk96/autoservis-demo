@@ -2,7 +2,7 @@
 
 import Button from "@/components/Button";
 import Card from "@/components/Card";
-import SectionHeading from "@/components/SectionHeading";
+import SectionHeading from "@/components/layout/SectionHeading";
 import { services } from "@/data/services";
 import { motion } from "framer-motion";
 

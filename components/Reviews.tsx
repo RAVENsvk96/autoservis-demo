@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { reviews } from "@/data/reviews";
-import SectionHeading from "@/components/SectionHeading";
+import SectionHeading from "@/components/layout/SectionHeading";
 
 export default function Reviews() {
   return (
