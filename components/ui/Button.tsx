@@ -19,19 +19,19 @@ export default function Button({
         inline-flex items-center justify-center
         whitespace-nowrap
         rounded-xl
-        bg-orange-500
+        bg-primary
         px-6 py-3
         font-semibold
         text-white
         transition-all duration-300
         hover:-translate-y-0.5
-        hover:bg-orange-600
+        hover:bg-primary-hover
         hover:shadow-lg
-        hover:shadow-orange-500/30
+        hover:shadow-primary/30
         active:scale-[0.98]
         focus-visible:outline-none
         focus-visible:ring-2
-        focus-visible:ring-orange-500
+        focus-visible:ring-primary
         focus-visible:ring-offset-2
         focus-visible:ring-offset-zinc-950
         ${className}
