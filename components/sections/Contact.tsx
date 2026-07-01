@@ -12,6 +12,10 @@ export default function Contact() {
     "idle"
   );
 
+  const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+    company.address
+  )}`;
+
   const handleSubmit: NonNullable<ComponentProps<"form">["onSubmit"]> = async (
     event
   ) => {
@@ -75,6 +79,8 @@ export default function Contact() {
                   icon: MapPin,
                   label: "Adresa",
                   value: company.address,
+                  href: mapsLink,
+                  external: true,
                 },
                 {
                   icon: Clock,
@@ -96,6 +102,8 @@ export default function Contact() {
                       {item.href ? (
                         <a
                           href={item.href}
+                          target={item.external ? "_blank" : undefined}
+                          rel={item.external ? "noopener noreferrer" : undefined}
                           className="font-semibold transition hover:text-orange-500"
                         >
                           {item.value}
@@ -108,6 +116,26 @@ export default function Contact() {
                 );
               })}
             </div>
+
+            <div className="mt-8 overflow-hidden rounded-3xl border border-zinc-800">
+              <iframe
+                src={company.mapUrl}
+                title={`${company.name} mapa`}
+                className="h-64 w-full"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+
+            <a
+              href={mapsLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-orange-500 transition hover:text-orange-400"
+            >
+              <MapPin className="h-4 w-4" />
+              Otvoriť v Google Maps
+            </a>
           </div>
 
           <form
