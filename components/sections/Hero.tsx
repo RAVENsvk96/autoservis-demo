@@ -77,7 +77,7 @@ export default function Hero() {
           <div className="rounded-3xl border border-zinc-800 bg-zinc-900/90 p-4 shadow-2xl shadow-black/40 backdrop-blur sm:p-5">
             <div className="relative overflow-hidden rounded-2xl">
               <Image
-                src="/images/car.jpg"
+                src={company.heroImage}
                 alt="Auto v autoservise"
                 width={700}
                 height={500}

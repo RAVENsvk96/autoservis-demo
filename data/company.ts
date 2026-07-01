@@ -7,6 +7,7 @@ export const company = {
 
   website: "https://autoservis-demo-beryl.vercel.app",
 
+  heroImage: "/images/hero.jpg",
   logo: "/images/logo-navbar.png",
   logoFull: "/images/logo-full.png",
   ogImage: "/images/og-image.png",
