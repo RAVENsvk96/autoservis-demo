@@ -3,7 +3,7 @@ import { BadgeCheck, Car, Wrench } from "lucide-react";
 export const heroFeatures = [
   {
     icon: BadgeCheck,
-    text: "15 rokov skúseností",
+    text: "Prehľadná ponuka služieb",
   },
   {
     icon: Wrench,
@@ -11,6 +11,6 @@ export const heroFeatures = [
   },
   {
     icon: Car,
-    text: "5000+ opravených áut",
+    text: "Responzívny moderný dizajn",
   },
 ];
