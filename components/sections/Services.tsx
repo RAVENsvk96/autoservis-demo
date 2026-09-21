@@ -1,7 +1,17 @@
-"use client";
-import { services } from "@/data/services";
-import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { CarFront, CircleGauge, Disc3, Droplets, Snowflake, Wrench } from "lucide-react";
+import Image from "next/image";
+
+const items = [
+  [Droplets,"Servis a údržba","Oleje, filtre, kontroly"], [Disc3,"Brzdy a podvozok","Bezpečne na prvom mieste"],
+  [CarFront,"Pneuservis","Prezutie, vyváženie"], [CircleGauge,"Diagnostika","Pre všetky značky"],
+  [Snowflake,"Klimatizácia","Servis a dezinfekcia"], [Wrench,"Geometria","Presné nastavenie"],
+] as const;
+
 export default function Services() {
-  return <section id="sluzby" className="border-b border-white/10 bg-[#070909] px-5 py-24 lg:px-10"><div className="mx-auto max-w-[1400px]"><div className="grid gap-8 lg:grid-cols-[1fr_420px] lg:items-end"><div><p className="eyebrow">Naše služby</p><h2 className="display mt-5 max-w-4xl text-4xl sm:text-6xl">VŠETKO, ČO VAŠE AUTO POTREBUJE.</h2></div><p className="leading-7 text-zinc-400">Od bežnej údržby až po náročnejšie opravy. Jasný rozsah služieb bez zbytočného hľadania.</p></div><div className="mt-14 grid border-l border-t border-white/15 sm:grid-cols-2 lg:grid-cols-4">{services.map((service, index) => { const Icon = service.icon; return <motion.article key={service.title} initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * .08 }} className="service-card group relative min-h-[330px] border-b border-r border-white/15 p-7"><span className="display text-3xl text-zinc-600">0{index + 1}</span><Icon className="mt-12 h-10 w-10 text-red-600" /><h3 className="mt-6 text-xl font-black uppercase text-white">{service.title}</h3><p className="mt-3 text-sm leading-6 text-zinc-400">{service.description}</p><div className="mt-7 flex items-center justify-between"><span className="text-sm font-bold text-white">{service.price}</span><a href="#kontakt" aria-label={`Viac o službe ${service.title}`} className="grid h-10 w-10 place-items-center rounded-full border border-white/20 transition group-hover:border-red-600 group-hover:bg-red-600"><ArrowUpRight className="h-4 w-4" /></a></div></motion.article>; })}</div></div></section>;
+  return <section id="sluzby" className="grid border-b border-white/10 bg-[#070909] lg:grid-cols-2">
+    <div className="relative min-h-[480px] overflow-hidden lg:min-h-[650px]"><Image src="/images/undercar-service.png" alt="Servis podvozka vozidla" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" /><div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" /><p className="absolute bottom-12 left-8 text-xs font-bold uppercase leading-6 tracking-[.3em]">Kvalitná<br />mechanika<br />za férovú cenu.</p></div>
+    <div className="flex items-center px-5 py-20 sm:px-12 lg:px-16"><div className="w-full"><p className="eyebrow">Naše služby</p><div className="mt-5 flex items-start justify-between gap-8"><div><h2 className="display text-4xl sm:text-5xl">KOMPLEXNÝ SERVIS<br />PRE VÁŠ VOZ</h2><p className="mt-4 max-w-xl text-sm leading-6 text-zinc-400">Od bežnej údržby až po náročnejšie opravy. Moderné vybavenie, skúsený prístup a dôraz na detail.</p></div><span className="hidden text-[9px] uppercase tracking-[.25em] text-zinc-500 sm:block">Spoľahlivosť<br />je základ</span></div>
+      <div className="mt-10 grid grid-cols-2 border-l border-t border-white/10 sm:grid-cols-3">{items.map(([Icon,title,text])=><article key={title} className="border-b border-r border-white/10 p-5"><Icon className="h-7 w-7 text-red-600" /><h3 className="mt-4 text-sm font-black">{title}</h3><p className="mt-1 text-[11px] text-zinc-500">{text}</p></article>)}</div>
+    </div></div>
+  </section>;
 }

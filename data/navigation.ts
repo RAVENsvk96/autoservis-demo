@@ -1,9 +1,5 @@
 export const navigation = [
   {
-    label: "Domov",
-    href: "#domov",
-  },
-  {
     label: "Služby",
     href: "#sluzby",
   },
@@ -12,8 +8,12 @@ export const navigation = [
     href: "#o-nas",
   },
   {
-    label: "Ciele",
-    href: "#ciele",
+    label: "Galéria",
+    href: "#galeria",
+  },
+  {
+    label: "Recenzie",
+    href: "#recenzie",
   },
   {
     label: "FAQ",
