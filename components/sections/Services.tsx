@@ -1,59 +1,7 @@
 "use client";
-
-import Button from "@/components/ui/Button";
-import Card from "@/components/ui/Card";
-import SectionHeading from "@/components/layout/SectionHeading";
 import { services } from "@/data/services";
 import { motion } from "framer-motion";
-
+import { ArrowUpRight } from "lucide-react";
 export default function Services() {
-  return (
-    <section id="sluzby" className="mx-auto max-w-6xl px-6 py-20">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <SectionHeading badge="Služby" title="Naše služby" />
-
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-
-            return (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="h-full"
-              >
-                <Card className="flex h-full flex-col p-6 transition-all duration-300 hover:-translate-y-1 hover:border-orange-500 hover:shadow-xl hover:shadow-orange-500/10">
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-500/10">
-                    <Icon className="h-6 w-6 text-orange-500" />
-                  </div>
-
-                  <h3 className="text-lg font-semibold">{service.title}</h3>
-
-                  <p className="mt-3 flex-1 text-sm leading-6 text-zinc-400">
-                    {service.description}
-                  </p>
-
-                  <p className="mt-6 font-semibold text-orange-500">
-                    {service.price}
-                  </p>
-
-                  <Button href="#kontakt" className="mt-6 w-full px-4 py-2">
-                    Objednať
-                  </Button>
-                </Card>
-              </motion.div>
-            );
-          })}
-        </div>
-      </motion.div>
-    </section>
-  );
+  return <section id="sluzby" className="border-b border-white/10 bg-[#070909] px-5 py-24 lg:px-10"><div className="mx-auto max-w-[1400px]"><div className="grid gap-8 lg:grid-cols-[1fr_420px] lg:items-end"><div><p className="eyebrow">Naše služby</p><h2 className="display mt-5 max-w-4xl text-4xl sm:text-6xl">VŠETKO, ČO VAŠE AUTO POTREBUJE.</h2></div><p className="leading-7 text-zinc-400">Od bežnej údržby až po náročnejšie opravy. Jasný rozsah služieb bez zbytočného hľadania.</p></div><div className="mt-14 grid border-l border-t border-white/15 sm:grid-cols-2 lg:grid-cols-4">{services.map((service, index) => { const Icon = service.icon; return <motion.article key={service.title} initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * .08 }} className="service-card group relative min-h-[330px] border-b border-r border-white/15 p-7"><span className="display text-3xl text-zinc-600">0{index + 1}</span><Icon className="mt-12 h-10 w-10 text-red-600" /><h3 className="mt-6 text-xl font-black uppercase text-white">{service.title}</h3><p className="mt-3 text-sm leading-6 text-zinc-400">{service.description}</p><div className="mt-7 flex items-center justify-between"><span className="text-sm font-bold text-white">{service.price}</span><a href="#kontakt" aria-label={`Viac o službe ${service.title}`} className="grid h-10 w-10 place-items-center rounded-full border border-white/20 transition group-hover:border-red-600 group-hover:bg-red-600"><ArrowUpRight className="h-4 w-4" /></a></div></motion.article>; })}</div></div></section>;
 }

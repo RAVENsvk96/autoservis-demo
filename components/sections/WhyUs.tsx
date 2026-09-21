@@ -1,32 +1,6 @@
-import SectionHeading from "@/components/layout/SectionHeading";
-import { whyUs } from "@/data/whyUs";
-
+import Image from "next/image";
+import { Clock3, Cog, MessageSquareText, ShieldCheck } from "lucide-react";
+const features = [{ icon: MessageSquareText, label: "Férová komunikácia" }, { icon: ShieldCheck, label: "Dôveryhodný prístup" }, { icon: Cog, label: "Moderné vybavenie" }, { icon: Clock3, label: "Rýchly kontakt" }];
 export default function WhyUs() {
-  return (
-    <section className="mx-auto max-w-6xl px-6 py-20">
-      <div className="rounded-3xl border border-zinc-800 bg-zinc-900/70 p-8 md:p-10">
-        <SectionHeading
-          badge={whyUs.badge}
-          title={whyUs.title}
-        />
-
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {whyUs.items.map((item) => (
-            <div
-              key={item.title}
-              className="rounded-2xl border border-transparent bg-zinc-950/60 p-6 transition-all duration-300 hover:-translate-y-2 hover:border-orange-500 hover:shadow-xl hover:shadow-orange-500/10"
-            >
-              <h3 className="font-semibold text-orange-500">
-                {item.title}
-              </h3>
-
-              <p className="mt-3 text-sm leading-6 text-zinc-400">
-                {item.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  return <section id="o-nas" className="grid border-b border-white/10 bg-black lg:grid-cols-2"><div className="relative min-h-[420px] lg:min-h-[720px]"><Image src="/images/mechanic-about.png" alt="Mechanik pri kontrole motora" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" /><div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" /><p className="absolute bottom-10 left-8 max-w-[190px] text-xs font-semibold uppercase leading-6 tracking-[.3em] text-white">Kvalita<br />Férovosť<br />Dôvera</p></div><div className="flex items-center px-5 py-20 sm:px-12 lg:px-16"><div className="max-w-2xl"><p className="eyebrow">O nás</p><h2 className="display mt-6 text-4xl leading-[.95] sm:text-6xl">AUTÁ SÚ NAŠA PRÁCA AJ <span className="text-red-600">VÁŠEŇ.</span></h2><p className="mt-7 leading-7 text-zinc-400">Silná prezentácia autoservisu musí vyzerať odborne, ale zároveň zostať zrozumiteľná. Preto návrh stavia na kontraste, jasnej hierarchii a priamych informáciách.</p><div className="mt-10 grid grid-cols-2 border-l border-t border-white/10">{features.map(({ icon: Icon, label }) => <div key={label} className="border-b border-r border-white/10 p-5"><Icon className="h-6 w-6 text-red-600" /><p className="mt-4 text-xs font-bold uppercase tracking-wider text-zinc-300">{label}</p></div>)}</div><a href="#kontakt" className="cta-ghost mt-10">Zistiť viac o návrhu</a></div></div></section>;
 }

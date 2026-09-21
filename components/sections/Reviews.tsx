@@ -1,15 +1,5 @@
 "use client";
-
-import SectionHeading from "@/components/layout/SectionHeading";
 import { motion } from "framer-motion";
 import { Gauge, LayoutTemplate, ShieldCheck } from "lucide-react";
-
-const goals = [
-  { icon: ShieldCheck, title: "Dôveryhodná prezentácia", text: "Jasná komunikácia a profesionálny vzhľad pomáhajú budovať dôveru ešte pred prvým kontaktom." },
-  { icon: LayoutTemplate, title: "Prehľad služieb", text: "Najdôležitejšie služby a odpovede sú dostupné bez zbytočného hľadania." },
-  { icon: Gauge, title: "Rýchly a responzívny web", text: "Návrh je pripravený na pohodlné používanie na mobile aj počítači." },
-];
-
-export default function Reviews() {
-  return <section className="mx-auto max-w-6xl px-6 py-20"><SectionHeading badge="Ciele návrhu" title="Web navrhnutý pre dôveru a prehľadnosť" description="Táto sekcia predstavuje ciele demo projektu. Neobsahuje recenzie ani výsledky skutočného autoservisu." /><div className="mt-10 grid gap-6 md:grid-cols-3">{goals.map((item, index) => { const Icon = item.icon; return <motion.article key={item.title} initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.1 }} className="rounded-3xl border border-zinc-800 bg-zinc-900 p-7"><div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-orange-500/10"><Icon className="h-5 w-5 text-orange-500" /></div><h3 className="mt-6 text-xl font-semibold">{item.title}</h3><p className="mt-4 leading-7 text-zinc-300">{item.text}</p></motion.article>; })}</div></section>;
-}
+const goals = [{ icon: ShieldCheck, title: "Dôveryhodná prezentácia", text: "Profesionálny vzhľad buduje dôveru ešte pred prvým kontaktom." }, { icon: LayoutTemplate, title: "Prehľadné služby", text: "To najdôležitejšie nájde návštevník bez zbytočného hľadania." }, { icon: Gauge, title: "Rýchly web", text: "Pohodlné používanie na mobile aj počítači bez vizuálneho balastu." }];
+export default function Reviews() { return <section id="ciele" className="bg-[#070909] px-5 py-24 lg:px-10"><div className="mx-auto max-w-[1400px]"><div className="grid gap-10 lg:grid-cols-[.8fr_1.2fr]"><div><p className="eyebrow">Ciele návrhu</p><h2 className="display mt-6 text-4xl sm:text-6xl">WEB, KTORÝ BUDUJE DÔVERU.</h2></div><div className="grid border-l border-t border-white/10 sm:grid-cols-3">{goals.map((item, index) => { const Icon = item.icon; return <motion.article key={item.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * .1 }} className="border-b border-r border-white/10 p-7"><Icon className="h-7 w-7 text-red-600" /><h3 className="mt-8 text-lg font-black uppercase">{item.title}</h3><p className="mt-4 text-sm leading-6 text-zinc-400">{item.text}</p></motion.article>; })}</div></div></div></section>; }

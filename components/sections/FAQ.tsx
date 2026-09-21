@@ -1,49 +1,5 @@
 "use client";
-
-import { motion } from "framer-motion";
-
-import Section from "@/components/layout/Section";
-import SectionHeading from "@/components/layout/SectionHeading";
 import { faq } from "@/data/faq";
-
-export default function FAQ() {
-  return (
-    <Section>
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <SectionHeading
-          badge="FAQ"
-          title="Časté otázky"
-        />
-
-        <div className="mt-10 grid gap-6">
-          {faq.map((item, index) => (
-            <motion.div
-              key={item.question}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.1,
-              }}
-              className="rounded-3xl border border-zinc-800 bg-zinc-900 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-orange-500 hover:shadow-xl hover:shadow-orange-500/10"
-            >
-              <h3 className="text-lg font-semibold text-white">
-                {item.question}
-              </h3>
-
-              <p className="mt-3 text-sm leading-7 text-zinc-400">
-                {item.answer}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
-    </Section>
-  );
-}
+import { useState } from "react";
+import { Plus } from "lucide-react";
+export default function FAQ() { const [active, setActive] = useState<number | null>(0); return <section id="faq" className="border-y border-white/10 bg-black px-5 py-24 lg:px-10"><div className="mx-auto grid max-w-[1400px] gap-14 lg:grid-cols-[.7fr_1.3fr]"><div><p className="eyebrow">FAQ</p><h2 className="display mt-6 text-4xl sm:text-6xl">ČASTÉ OTÁZKY.</h2></div><div>{faq.map((item, index) => <div key={item.question} className="border-t border-white/15 last:border-b"><button type="button" onClick={() => setActive(active === index ? null : index)} className="flex w-full items-center justify-between gap-5 py-6 text-left"><span className="font-bold uppercase tracking-wide">{item.question}</span><Plus className={`h-5 w-5 shrink-0 text-red-600 transition ${active === index ? "rotate-45" : ""}`} /></button>{active === index && <p className="max-w-2xl pb-7 text-sm leading-7 text-zinc-400">{item.answer}</p>}</div>)}</div></div></section>; }

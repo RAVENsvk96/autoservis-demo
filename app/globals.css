@@ -1,33 +1,24 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-
-  --primary: #f97316;
-  --primary-hover: #ea580c;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-
-  --color-primary: var(--primary);
-  --color-primary-hover: var(--primary-hover);
-
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+:root { --background: #050606; --foreground: #f5f5f5; --primary: #dc2626; --primary-hover: #ef2b2b; }
+@theme inline { --color-background: var(--background); --color-foreground: var(--foreground); --color-primary: var(--primary); --color-primary-hover: var(--primary-hover); --font-sans: var(--font-geist-sans); --font-mono: var(--font-geist-mono); }
+* { box-sizing: border-box; }
+html { background: #050606; }
+body { margin: 0; background: #050606; color: #f5f5f5; font-family: Arial, Helvetica, sans-serif; }
+::selection { background: #dc2626; color: white; }
+.display { font-family: "Arial Narrow", "Roboto Condensed", Impact, sans-serif; font-weight: 900; letter-spacing: -.045em; text-transform: uppercase; }
+.eyebrow { display: flex; align-items: center; gap: .75rem; color: #a1a1aa; font-size: .67rem; font-weight: 700; letter-spacing: .25em; text-transform: uppercase; }
+.eyebrow::before { content: ""; width: 1.5rem; height: 2px; background: #dc2626; }
+.hero-bg { background-image: linear-gradient(90deg, #050606 0%, rgba(5,6,6,.97) 20%, rgba(5,6,6,.78) 42%, rgba(5,6,6,.12) 72%), linear-gradient(0deg, rgba(0,0,0,.75), transparent 50%), url('/images/hero-garage.png'); background-size: cover; background-position: center; }
+.contact-bg { background-image: linear-gradient(90deg, #050606 0%, rgba(5,6,6,.92) 52%, rgba(5,6,6,.25)), url('/images/hero-garage.png'); background-size: cover; background-position: center 62%; }
+.nav-link { position: relative; padding-block: 1.75rem; color: #a1a1aa; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; transition: color .2s; }
+.nav-link:hover, .nav-link.active { color: white; }
+.nav-link.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: #dc2626; }
+.cta-primary, .cta-ghost { display: inline-flex; min-height: 52px; align-items: center; justify-content: center; gap: .75rem; padding: .8rem 1.5rem; font-size: .75rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; transition: .25s ease; }
+.cta-primary { background: #dc2626; color: white; }
+.cta-primary:hover { background: #f12828; transform: translateY(-2px); }
+.cta-ghost { border: 1px solid rgba(255,255,255,.22); color: white; }
+.cta-ghost:hover { border-color: #dc2626; background: rgba(220,38,38,.08); }
+.service-card { background: linear-gradient(145deg, rgba(255,255,255,.025), transparent); transition: background .3s; }
+.service-card:hover { background: linear-gradient(145deg, rgba(220,38,38,.12), rgba(255,255,255,.02)); }
+@media (max-width: 640px) { .hero-bg { background-image: linear-gradient(90deg, rgba(5,6,6,.96), rgba(5,6,6,.65)), url('/images/hero-garage.png'); background-position: 62% center; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; } }
